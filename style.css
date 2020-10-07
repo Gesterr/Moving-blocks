@@ -1,0 +1,51 @@
+html,body{
+	margin: 0;
+	padding: 0;
+}
+/* Задний фон и конфигурация*/
+.blocks{
+	border-radius: 10px;
+	position: fixed;
+	margin-top:20%;
+	margin-left:20%; 
+	width: 300px;
+	height: 150px;
+}
+/* Верхний блок */
+.block1{
+	text-align: center;
+	font-size: 24px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px ;
+	width: 100%;
+	background-color: blue;
+	height: 50%;
+	z-index: 999;
+}
+/* Нижний блок */
+.block2{
+	text-align: center;
+	font-size: 24px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px ;
+	width: 100%;
+	background-color: silver;
+	height: 50%;
+	z-index: 999;
+}
+/* Конфигурация фона для блоков */
+.text{
+	border-radius: 10px;
+	position: absolute;
+	height: 150px;
+	width: 300px;
+	background-color: red;
+}
+/* Конфигурация текста внутри блока */
+.ttext{
+	margin-top:52px; 
+	margin-left: 79px;
+	position: absolute;
+	z-index: 99999;
+	opacity: 0;
+}

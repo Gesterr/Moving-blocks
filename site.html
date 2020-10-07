@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Moving blocks</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- Ссылка на jQuery -->
+	<script
+  	src="https://code.jquery.com/jquery-3.5.1.js"
+  	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  	crossorigin="anonymous"></script>
+  	<!-- Ссылка на BootsTrap -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body style="background-color: #191919">
+	<div class="blocks">
+		<!-- Это текст под блоками, которые появляются после появления после наводки -->
+		<h1 class="ttext">HELLO?</h1>
+		<!-- Этот див, для того чтобы спозиционировать блоки поверх текста -->
+		<div class='text'>
+			<!-- Конфигурация блоков которые раздвигаются -->
+			<div class="block1">Point it at me!</div>
+			<div class="block2">Or me!</div>
+		</div>
+	</div>
+
+<!-- Скрипт отвечающий за это -->
+	<script>
+		$(function(){
+			$(".blocks").mouseover(function(){
+				/* Данная команда позволяет при наводке на класс blocks отодвинуть друг от друга блоки на соответсвующие расстояния */
+				$(".block2").animate({marginTop:"150px"},150);
+				$(".block1").animate({marginTop:"-75px"},150);
+				/* Данная команда через 75 миллисекунд после начала анимации, убирает у заднего фона округлённые края, чтобы выглядело сносно, а после делает видимость текста,который внутри этих блоков, равную 1 */
+				setTimeout (function(){
+					$(".text").css("border-radius","0px");
+					$(".ttext").css("opacity","1");
+				},75);
+			});
+			/* Эта часть команд, позвоялет всё вернуть в первоначальное состояние, когда курсор уходит от класса blocks */
+			$(".blocks").mouseleave(function(){
+				$(".block1").animate({marginTop:"0px"},150);
+				$(".block2").animate({marginTop:"0px"},150);	
+				setTimeout (function(){
+					$(".text").css("border-radius","10px");
+					$(".ttext").css("opacity","0");
+				},90);	
+			});
+		});
+	</script>
+</body>
+</html>
